@@ -1,0 +1,1369 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "inventoryManagement",
+    "contact": {}
+  },
+  "host": "54.176.169.179:3000",
+  "basePath": "/api/v1",
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/users/admin/signUp": {
+      "post": {
+        "summary": "signUp",
+        "tags": ["Admin"],
+        "operationId": "PostsignUp1",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "passwordConfirm",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/users/admin/login": {
+      "post": {
+        "summary": "login",
+        "tags": ["Admin"],
+        "operationId": "login",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/users/admin/logout": {
+      "get": {
+        "summary": "logout",
+        "tags": ["Admin"],
+        "operationId": "logout",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/users/auth/signUp": {
+      "post": {
+        "summary": "signUp",
+        "tags": ["User"],
+        "operationId": "PostsignUp",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "socialType",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "1: googleId, 2: facebookId"
+           
+          },
+          {
+            "name": "social_login_id",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/users/auth/logout": {
+      "get": {
+        "summary": "logout",
+        "tags": ["User"],
+        "operationId": "Userlogout",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/items/create": {
+      "post": {
+        "summary": "create",
+        "tags": ["Products"],
+        "operationId": "create",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Optional"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": "Required"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "Required"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+         
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/items/getItem": {
+      "get": {
+        "summary": "getItem",
+        "tags": ["Products"],
+        "operationId": "getItem",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional",
+            "default": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/items/updateItem": {
+      "patch": {
+        "summary": "updateItem",
+        "tags": ["Products"],
+        "operationId": "updateItem",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Optional"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Optional"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": "Optional"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Optional"
+          },
+          {
+            "name": "itemId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/items/deleteItem": {
+      "delete": {
+        "summary": "deleteItem",
+        "tags": ["Products"],
+        "operationId": "deleteItem",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "itemId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/items/getItemById": {
+      "get": {
+        "summary": "getItemById",
+        "tags": ["Products"],
+        "operationId": "getItemById",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "itemId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/category/create": {
+      "post": {
+        "summary": "create",
+        "tags": ["Category"],
+        "operationId": "createCategory",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          },
+          
+          {
+            "name": "quantity",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "Required"
+          }
+         
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/category/getCategories": {
+      "get": {
+        "summary": "getCategories",
+        "tags": ["Category"],
+        "operationId": "getCategories",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional",
+            "default": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/category/updateCategory": {
+      "patch": {
+        "summary": "updateCategory",
+        "tags": ["Category"],
+        "operationId": "updateCategory",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "description": "Optional"
+          },
+          {
+            "name": "quantity",
+            "in": "formData",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/category/deleteCategory": {
+      "delete": {
+        "summary": "deleteCategory",
+        "tags": ["Category"],
+        "operationId": "deleteCategory",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/category/getCategoryById": {
+      "get": {
+        "summary": "getCategoryById",
+        "tags": ["Category"],
+        "operationId": "getCategoryById",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }, 
+    "/order/place": {
+      "post": {
+        "summary": "place",
+        "tags": ["Order"],
+        "operationId": "place",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "items",
+            "in": "body",
+            "required": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/items"
+            }
+          }
+         
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/order/accountDetail": {
+      "get": {
+        "summary": "get account details",
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getaccountdetails",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/suggested-product/create": {
+      "post": {
+        "summary": "create suggested product",
+        "tags": [
+          "suggested Product"
+        ],
+        "operationId": "createsuggestedproduct",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createsuggestedproductrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/order/gettransactionHistory": {
+      "get": {
+        "summary": "get Transaction history",
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getTransactionhistory",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/order/repeatOrder": {
+      "post": {
+        "summary": "repeat Order",
+        "tags": [
+          "Order"
+        ],
+        "operationId": "repeatOrder",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/repeatOrderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/order/recentOrder": {
+      "get": {
+        "summary": "recent Order",
+        "tags": [
+          "Order"
+        ],
+        "operationId": "recentOrder",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/suggested-product/updateSuggestedProduct": {
+      "patch": {
+        "summary": "update suggested product",
+        "tags": [
+          "suggested Product"
+        ],
+        "operationId": "updatesuggestedproduct",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/updatesuggestedproductrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/suggested-product/getSuggestedProduct": {
+      "get": {
+        "summary": "get Suggested products",
+        "tags": [
+          "suggested Product"
+        ],
+        "operationId": "getSuggestedproducts",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/suggested-product/deleteSuggestedProduct": {
+      "delete": {
+        "summary": "delete suggested product",
+        "tags": [
+          "suggested Product"
+        ],
+        "operationId": "deletesuggestedproduct",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/deletesuggestedproductrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/suggested-product/getSuggestedProductById": {
+      "get": {
+        "summary": "get suggested product by id",
+        "tags": [
+          "suggested Product"
+        ],
+        "operationId": "getsuggestedproductbyid",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/suggested-product/productStatusChange": {
+      "patch": {
+        "summary": "product status change by admin",
+        "tags": [
+          "suggested Product"
+        ],
+        "operationId": "productstatuschangebyadmin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/productstatuschangebyadminrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/order/list": {
+      "get": {
+        "summary": "list",
+        "tags": ["Order"],
+        "operationId": "list",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional",
+            "default": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": "Optional"
+          }
+         
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/order/byId": {
+      "get": {
+        "summary": "byId",
+        "tags": ["Order"],
+        "operationId": "byId",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          },
+          {
+            "name": "orderId",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Required"
+          }
+         
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/order/userOrder": {
+      "get": {
+        "summary": "userOrder",
+        "tags": ["Order"],
+        "operationId": "userOrder",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+        
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "authToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/order/revertItem": {
+      "post": {
+        "summary": "revert Items",
+        "tags": [
+          "Order"
+        ],
+        "operationId": "revertItems",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Cookie",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/revertItemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  
+  "definitions": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "description": "Required"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional"
+          },
+          "price":{
+            "type": "number",
+            "format": "double",
+            "description": "Required"
+          },
+          "quantity":{
+            "type": "integer",
+            "format": "int32",
+            "description": "Required"
+          }
+        }
+      }
+    },
+    "repeatOrderRequest": {
+      "title": "repeatOrderRequest",
+      "example": {
+        "orderId": "62df690b1766906a66007f98"
+      },
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "orderId"
+      ]
+    },
+    "createsuggestedproductrequest": {
+      "title": "createsuggestedproductrequest",
+      "example": {
+        "name": "kitkat",
+        "price": 10,
+        "categoryId": "628632a47a4950190d42709b",
+        "image": "62983f3bd953867435876fd4"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "price",
+        "categoryId",
+        "image"
+      ]
+    },
+    "updatesuggestedproductrequest": {
+      "title": "updatesuggestedproductrequest",
+      "example": {
+        "name": "kitkat",
+        "price": 100,
+        "categoryId": "628632a47a4950190d42709b",
+        "productId": "6374c37418abafd7c2737609"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "categoryId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "price",
+        "categoryId",
+        "productId"
+      ]
+    },
+    "deletesuggestedproductrequest": {
+      "title": "deletesuggestedproductrequest",
+      "example": {
+        "productId": "6374c37418abafd7c2737609"
+      },
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "productId"
+      ]
+    },
+    "productstatuschangebyadminrequest": {
+      "title": "productstatuschangebyadminrequest",
+      "example": {
+        "productId": "6374c37418abafd7c2737609",
+        "productStatus": 1
+      },
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string"
+        },
+        "productStatus": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "productId",
+        "productStatus"
+      ]
+    },
+    "revertItemsRequest": {
+      "title": "revertItemsRequest",
+      "example": {
+        "items": [
+          {
+            "itemId": "62b43b506d5f9d5df2caf99d",
+            "price": 5,
+            "quantity": 1
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          }
+        }
+      },
+      "required": [
+        "items"
+      ]
+    }
+  },
+  "tags": [
+   
+  ]
+}
